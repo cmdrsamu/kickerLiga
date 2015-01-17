@@ -1,0 +1,66 @@
+body
+{
+	background-color: #63666a;
+}
+
+a {
+	color: #005f6a;
+}
+
+#header {
+height: 130px;
+background-color: #ed8b00;	
+font-family:fantasy;
+font-size: 30px;
+}
+
+#title {
+	position: absolute;
+	left: 150px;
+	top: 15px; 
+}
+
+#menu {
+	position: absolute;
+	margin-left: 150px;
+	top: 67px;
+	font-size: 15px;
+
+}
+
+
+#logo {
+position: absolute;
+float: left;
+left: 15px; 
+top: 15px;	
+}
+
+
+#main {
+	position: absolute;
+	border: 4px dotted #ed8b00;
+	width: 60%;
+	top: 150px;
+	padding: 3px;
+}
+#rightSide {
+	position: absolute;
+	border: 4px dotted #ed8b00;
+	width: 35%;
+	left: 63.6%;	
+	top: 150px;
+	padding: 3px;	
+}
+
+#ueber {
+	background-color: #ED8B00;
+	margin-bottom: 5px;
+}
+
+table {
+	border: 1px solid #ed8b00;
+}
+
+
+
