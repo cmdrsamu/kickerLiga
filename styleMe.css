@@ -58,6 +58,14 @@ top: 15px;
 	margin-bottom: 5px;
 }
 
+#features {
+	position: absolute;
+	left:90%;
+	top:1%;
+	font-family:fantasy;
+	font-size: 15px;
+}
+
 table {
 	border: 1px solid #ed8b00;
 }

@@ -86,6 +86,8 @@ var myLineChart = new Chart(ctx2).Line(
 echo "<div id='main'>";
 echo "<h2>$nickname</h2>";
 echo "<h4>Spiele insgesamt: $nrGames</h4>";
+$ratio = getWinRatio($playerID);
+echo "<h4>Siegquote: $ratio %</h4>";
 $temp = getAbwehrSturm($playerID);
 $abwehr = $temp[0];
 $sturm = $temp[1];

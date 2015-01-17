@@ -3,7 +3,17 @@
 include ('config.php');
 error_reporting(E_ALL);
 
-
+function getAllPlayerID()
+{
+	$sql_te = mysql_query("SELECT * FROM players");
+	$check_name = mysql_num_rows($sql_te);
+	$listPlayer = array();
+	for ($i=0;$i<$check_name;$i++)
+	{
+			$listPlayer[$i] = mysql_result($sql_te,$i, "id");
+	}
+	return $listPlayer;
+}
 
 function getPlayerNick($id)
 {
@@ -17,6 +27,15 @@ function getNumberOfGamesByPlayer($id)
 	$sql = mysql_query("SELECT * FROM games where player_1='$id' or player_2='$id' or player1_1='$id' or player2_2='$id'");
 	$n = mysql_num_rows($sql);
 	return $n;
+}
+
+function getWinRatio($id)
+{
+	$wins_looses = getWinsAndLoose($id);
+	$overall = getNumberOfGamesByPlayer($id);
+	$ratio = $wins_looses[0] / $overall * 100;
+		
+	return round($ratio, 2);
 }
 
 function getOverallGames()

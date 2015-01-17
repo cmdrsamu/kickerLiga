@@ -66,14 +66,11 @@ echo "</div>";
 //now add the left side panel
 echo "<div id='rightSide'>";
 echo "<div id='ueber'>Spieler</div>";
-$sql_te = mysql_query("SELECT * FROM players");
-$check_name = mysql_num_rows($sql_te);
-
-for ($i=0;$i<$check_name;$i++)
+$playerList = getAllPlayerID();
+for ($i=0;$i<sizeof($playerList);$i++)
 {
-		$v_id_sel = mysql_result($sql_te,$i, "id");
-		$v_name_sel = getPlayerNick($v_id_sel);
-		echo "<a href='player.php?id=$v_id_sel'>$v_name_sel</a><br>";
+		$v_name_sel = getPlayerNick($playerList[$i]);
+		echo "<a href='player.php?id=$playerList[$i]'>$v_name_sel</a><br>";
 
 }
 echo "</div>";
