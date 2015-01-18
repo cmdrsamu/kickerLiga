@@ -18,14 +18,55 @@ for ($i=0;$i<sizeof($playerList);$i++)
 	$playerRatio[$playerList[$i]] = getWinRatio($playerList[$i]);
 }
 arsort($playerRatio);
-echo "<h2>TopSpieler bei Siegquote</h2><table><tr bgcolor='#ed8b00'><td width='300'>Player</td><td width='100'>Siegquote</td></tr>";	
+echo "<h3>TopSpieler bei Siegquote</h3><table><tr bgcolor='#ed8b00'><td width='300'>Player</td><td width='100'>Siegquote</td></tr>";	
 foreach ($playerRatio as $key => $val) {
     $nick = getPlayerNick($key);
     echo "<tr><td><a href='player.php?id=$key'>$nick</a></td><td>$val %</td></tr>";
 }
 
-echo "</table></div>";
+echo "</table>";
+//we generate a list with playerMostGames
+$playerGames = array();
+for ($i=0;$i<sizeof($playerList);$i++)
+{
+	$playerGames[$playerList[$i]] = getNumberOfGamesByPlayer($playerList[$i]);
+}
+arsort($playerGames);
+echo "<h3>Meiste Spiele gesamt</h3><table><tr bgcolor='#ed8b00'><td width='300'>Player</td><td width='100'>Spiele</td></tr>";	
+foreach ($playerGames as $key => $val) {
+    $nick = getPlayerNick($key);
+    echo "<tr><td><a href='player.php?id=$key'>$nick</a></td><td>$val</td></tr>";
+}
+echo "</table>";
+//gimme now the most games as defense and offense
+$playerDefense = array();
+$playerOfense = array();
+for ($i=0;$i<sizeof($playerList);$i++)
+{
+	$playerDefense[$playerList[$i]] = getAbwehrSturm($playerList[$i])[0];
+	$playerOfense[$playerList[$i]] = getAbwehrSturm($playerList[$i])[1];
+}
+//sort the shit now
+arsort($playerDefense);
+arsort($playerOfense);
 
+echo "<h3>Meiste Spiele Abwehr</h3><table><tr bgcolor='#ed8b00'><td width='300'>Player</td><td width='100'>Spiele Abwehr</td></tr>";	
+foreach ($playerDefense as $key => $val) {
+    $nick = getPlayerNick($key);
+    echo "<tr><td><a href='player.php?id=$key'>$nick</a></td><td>$val</td></tr>";
+}
+echo "</table>";
+echo "<h3>Meiste Spiele Sturm</h3><table><tr bgcolor='#ed8b00'><td width='300'>Player</td><td width='100'>Spiele Sturm</td></tr>";	
+foreach ($playerOfense as $key => $val) {
+    $nick = getPlayerNick($key);
+    echo "<tr><td><a href='player.php?id=$key'>$nick</a></td><td>$val</td></tr>";
+}
+echo "</table>";
+
+
+
+
+echo "</div>";
 //=========================
 //===	rightSide	===
 //=========================
