@@ -78,7 +78,7 @@ for ($i=0;$i<sizeof($moreGames);$i++)
 	{
 		echo "/ <a href='player.php?id=$player1_1'>$nickname1_1</a>";
 	}
-	echo "</td><td><img src='/img/$data[0]_small.png'></td><td><img src='/img/$data[1]_small.png'></td>";
+	echo "</td><td><div class='number'>$data[0]</div></td><td><div class='number'>$data[1]</div></td>";
 	echo "<td>Team2: <a href='player.php?id=$player2'>$nickname2</a>";
 	if ($player2_2 != 0)
 	{ 
